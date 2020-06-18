@@ -1,0 +1,111 @@
+﻿@using Mondays.Utility
+@model Mondays.Models.CustomerPreferences
+
+@{
+    ViewData["Title"] = "Δημιουργία";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Δημιουργία Προτίμησης</h1>
+
+<h4>Προτιμήσεις</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    @if (User.IsInRole(SD.Role_Admin))
+                    {
+                    <div class="form-group">
+                        <label asp-for="ApplicationUserId" class="control-label"></label>
+                        <select asp-for="ApplicationUserId" id="applicationUserId" class="form-control select2" asp-items="ViewBag.ApplicationUserId"></select>
+                    </div>
+                    }
+                    else
+                    {
+                        <div class="form-group">
+                            <label asp-for="ApplicationUserId" class="control-label"></label>
+                            <select asp-for="ApplicationUserId"  class="form-control" asp-items="ViewBag.ApplicationUserId"></select>
+                        </div>
+
+                    }
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ProductId" class="control-label"></label>
+                        <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                        <span asp-validation-for="ProductId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="SweetenerId" class="control-label"></label>
+                        <select asp-for="SweetenerId" class="form-control" asp-items="ViewBag.SweetenerId"></select>
+                        <span asp-validation-for="SweetenerId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="SweetnessId" class="control-label"></label>
+                        <select asp-for="SweetnessId" class="form-control" asp-items="ViewBag.SweetnessId"></select>
+                        <span asp-validation-for="SweetnessId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="ToppingId" class="control-label"></label>
+                        <select asp-for="ToppingId" class="form-control" asp-items="ViewBag.ToppingId"></select>
+                        <span asp-validation-for="ToppingId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="MilkTypeId" class="control-label"></label>
+                        <select asp-for="MilkTypeId" class="form-control" asp-items="ViewBag.MilkTypeId"></select>
+                        <span asp-validation-for="MilkTypeId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="OriginId" class="control-label"></label>
+                        <select asp-for="OriginId" class="form-control" asp-items="ViewBag.OriginId"></select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="IceCubeId" class="control-label"></label>
+                        <select asp-for="IceCubeId" class="form-control" asp-items="ViewBag.IceCubeId"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label asp-for="Notes" class="control-label"></label>
+                        <textarea asp-for="Notes" class="form-control" rows="2"></textarea>
+                        <span asp-validation-for="Notes" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">
+                <div class="form-group">
+                    <input type="submit" value="Δημιουργία" class="btn btn-success" />
+                    <a asp-action="Index" class="btn btn-primary">Επιστροφή στη λίστα</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

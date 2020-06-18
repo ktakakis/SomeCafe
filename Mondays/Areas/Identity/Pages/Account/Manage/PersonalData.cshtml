@@ -1,0 +1,27 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Προσωπικά δεδομένα";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h4>@ViewData["Title"]</h4>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>Ο λογαριασμός σας περιέχει προσωπικά δεδομένα που μας έχετε δώσει. Αυτή η σελίδα σάς επιτρέπει να κάνετε λήψη ή διαγραφή αυτών των δεδομένων.</p>
+        <p>
+            <strong>Η διαγραφή αυτών των δεδομένων θα καταργήσει οριστικά τον λογαριασμό σας και δεν είναι δυνατή η ανάκτησή του.</strong>
+        </p>
+        <form id="download-data" asp-page="DownloadPersonalData" method="post" class="form-group">
+            <button class="btn btn-primary" type="submit">Λήψη</button>
+        </form>
+        <p>
+            <a id="delete" asp-page="DeletePersonalData" class="btn btn-primary">Διαγραφή</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

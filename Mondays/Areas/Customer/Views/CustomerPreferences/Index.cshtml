@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Mondays.Models.CustomerPreferences>
+@using Mondays.Utility
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+}
+
+    <div class="row">
+        <!--<div class="col-6">
+            <h2 class="text-primary">Οι Προτιμήσεις σας... </h2>
+        </div>-->
+        <div class="col-12 text-right ">
+            <a class="btn btn-primary" asp-action="Create"><i class="fas fa-plus"></i> &nbsp; Προσθήκη</a>
+        </div>
+    </div>
+<div class="container-fluid">
+    <table  class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                @if (User.IsInRole(SD.Role_Admin))
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.ApplicationUser)
+                    </th>
+                }
+                <th>
+                    @Html.DisplayNameFor(model => model.Product)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Origins)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sweetener)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sweetness)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Topping)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MilkTypes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IceCubes)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @if (User.IsInRole(SD.Role_Admin))
+                    {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ApplicationUser.UserName)
+                        </td>
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Origins.OriginName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sweetener.SweetenerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sweetness.SweetnessName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topping.ToppingName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MilkTypes.MilkTypeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IceCubes.IceCubeName)
+                    </td>
+                    <td>
+                        <div class="tools">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary btn-xs"><i class="fa fa-list"></i></a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

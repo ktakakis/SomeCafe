@@ -1,0 +1,254 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-Mondays-5E51917C-DF90-4298-8B2B-619BD0A557E7</UserSecretsId>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc" Version="3.1.3" />
+    <PackageReference Include="Stripe.net" Version="37.6.0" />
+    <PackageReference Include="Twilio" Version="5.42.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mondays.DataAccess\Mondays.DataAccess.csproj" />
+    <ProjectReference Include="..\Mondays.Models\Mondays.Models.csproj" />
+    <ProjectReference Include="..\Mondays.Utility\Mondays.Utility.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="wwwroot\images\arrow-right.svg" />
+    <None Include="wwwroot\images\main_banner_text.svg" />
+    <None Include="wwwroot\images\refresh.svg" />
+    <None Include="wwwroot\js\category.js" />
+    <None Include="wwwroot\js\company.js" />
+    <None Include="wwwroot\js\coverType.js" />
+    <None Include="wwwroot\js\customerPreferences.js" />
+    <None Include="wwwroot\js\date-euro.js" />
+    <None Include="wwwroot\js\i18n\af.js" />
+    <None Include="wwwroot\js\i18n\ar.js" />
+    <None Include="wwwroot\js\i18n\az.js" />
+    <None Include="wwwroot\js\i18n\bg.js" />
+    <None Include="wwwroot\js\i18n\bn.js" />
+    <None Include="wwwroot\js\i18n\bs.js" />
+    <None Include="wwwroot\js\i18n\ca.js" />
+    <None Include="wwwroot\js\i18n\cs.js" />
+    <None Include="wwwroot\js\i18n\da.js" />
+    <None Include="wwwroot\js\i18n\de.js" />
+    <None Include="wwwroot\js\i18n\dsb.js" />
+    <None Include="wwwroot\js\i18n\el.js" />
+    <None Include="wwwroot\js\i18n\en.js" />
+    <None Include="wwwroot\js\i18n\es.js" />
+    <None Include="wwwroot\js\i18n\et.js" />
+    <None Include="wwwroot\js\i18n\eu.js" />
+    <None Include="wwwroot\js\i18n\fa.js" />
+    <None Include="wwwroot\js\i18n\fi.js" />
+    <None Include="wwwroot\js\i18n\fr.js" />
+    <None Include="wwwroot\js\i18n\gl.js" />
+    <None Include="wwwroot\js\i18n\he.js" />
+    <None Include="wwwroot\js\i18n\hi.js" />
+    <None Include="wwwroot\js\i18n\hr.js" />
+    <None Include="wwwroot\js\i18n\hsb.js" />
+    <None Include="wwwroot\js\i18n\hu.js" />
+    <None Include="wwwroot\js\i18n\hy.js" />
+    <None Include="wwwroot\js\i18n\id.js" />
+    <None Include="wwwroot\js\i18n\is.js" />
+    <None Include="wwwroot\js\i18n\it.js" />
+    <None Include="wwwroot\js\i18n\ja.js" />
+    <None Include="wwwroot\js\i18n\ka.js" />
+    <None Include="wwwroot\js\i18n\km.js" />
+    <None Include="wwwroot\js\i18n\ko.js" />
+    <None Include="wwwroot\js\i18n\lt.js" />
+    <None Include="wwwroot\js\i18n\lv.js" />
+    <None Include="wwwroot\js\i18n\mk.js" />
+    <None Include="wwwroot\js\i18n\ms.js" />
+    <None Include="wwwroot\js\i18n\nb.js" />
+    <None Include="wwwroot\js\i18n\ne.js" />
+    <None Include="wwwroot\js\i18n\nl.js" />
+    <None Include="wwwroot\js\i18n\pl.js" />
+    <None Include="wwwroot\js\i18n\ps.js" />
+    <None Include="wwwroot\js\i18n\pt-BR.js" />
+    <None Include="wwwroot\js\i18n\pt.js" />
+    <None Include="wwwroot\js\i18n\ro.js" />
+    <None Include="wwwroot\js\i18n\ru.js" />
+    <None Include="wwwroot\js\i18n\sk.js" />
+    <None Include="wwwroot\js\i18n\sl.js" />
+    <None Include="wwwroot\js\i18n\sq.js" />
+    <None Include="wwwroot\js\i18n\sr-Cyrl.js" />
+    <None Include="wwwroot\js\i18n\sr.js" />
+    <None Include="wwwroot\js\i18n\sv.js" />
+    <None Include="wwwroot\js\i18n\th.js" />
+    <None Include="wwwroot\js\i18n\tk.js" />
+    <None Include="wwwroot\js\i18n\tr.js" />
+    <None Include="wwwroot\js\i18n\uk.js" />
+    <None Include="wwwroot\js\i18n\vi.js" />
+    <None Include="wwwroot\js\i18n\zh-CN.js" />
+    <None Include="wwwroot\js\i18n\zh-TW.js" />
+    <None Include="wwwroot\js\moment-with-locales.js" />
+    <None Include="wwwroot\js\moment.js" />
+    <None Include="wwwroot\js\order.js" />
+    <None Include="wwwroot\js\product.js" />
+    <None Include="wwwroot\js\qrcode.js" />
+    <None Include="wwwroot\js\select2.full.js" />
+    <None Include="wwwroot\js\select2.full.min.js" />
+    <None Include="wwwroot\js\select2.js" />
+    <None Include="wwwroot\js\select2.min.js" />
+    <None Include="wwwroot\js\site.js" />
+    <None Include="wwwroot\js\user.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\lib\datatables.net-bs\js\dataTables.bootstrap.js" />
+    <None Include="wwwroot\lib\datatables.net-bs\js\dataTables.bootstrap.min.js" />
+    <None Include="wwwroot\lib\datatables.net-bs\Readme.md" />
+    <None Include="wwwroot\lib\datatables.net\js\jquery.dataTables.js" />
+    <None Include="wwwroot\lib\datatables.net\js\jquery.dataTables.min.js" />
+    <None Include="wwwroot\lib\datatables.net\Readme.md" />
+    <None Include="wwwroot\lib\dataTables.treeGrid.js-master\.gitignore" />
+    <None Include="wwwroot\lib\dataTables.treeGrid.js-master\dataTables.treeGrid.js" />
+    <None Include="wwwroot\lib\dataTables.treeGrid.js-master\LICENSE" />
+    <None Include="wwwroot\lib\dataTables.treeGrid.js-master\README.md" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\lib\jquery-validation\dist\jQueryFixes.js" />
+    <None Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <None Include="wwwroot\Templates\js\category.js" />
+    <None Include="wwwroot\Templates\js\company.js" />
+    <None Include="wwwroot\Templates\js\coverType.js" />
+    <None Include="wwwroot\Templates\js\customerPreferences.js" />
+    <None Include="wwwroot\Templates\js\i18n\af.js" />
+    <None Include="wwwroot\Templates\js\i18n\ar.js" />
+    <None Include="wwwroot\Templates\js\i18n\az.js" />
+    <None Include="wwwroot\Templates\js\i18n\bg.js" />
+    <None Include="wwwroot\Templates\js\i18n\bn.js" />
+    <None Include="wwwroot\Templates\js\i18n\bs.js" />
+    <None Include="wwwroot\Templates\js\i18n\ca.js" />
+    <None Include="wwwroot\Templates\js\i18n\cs.js" />
+    <None Include="wwwroot\Templates\js\i18n\da.js" />
+    <None Include="wwwroot\Templates\js\i18n\de.js" />
+    <None Include="wwwroot\Templates\js\i18n\dsb.js" />
+    <None Include="wwwroot\Templates\js\i18n\el.js" />
+    <None Include="wwwroot\Templates\js\i18n\en.js" />
+    <None Include="wwwroot\Templates\js\i18n\es.js" />
+    <None Include="wwwroot\Templates\js\i18n\et.js" />
+    <None Include="wwwroot\Templates\js\i18n\eu.js" />
+    <None Include="wwwroot\Templates\js\i18n\fa.js" />
+    <None Include="wwwroot\Templates\js\i18n\fi.js" />
+    <None Include="wwwroot\Templates\js\i18n\fr.js" />
+    <None Include="wwwroot\Templates\js\i18n\gl.js" />
+    <None Include="wwwroot\Templates\js\i18n\he.js" />
+    <None Include="wwwroot\Templates\js\i18n\hi.js" />
+    <None Include="wwwroot\Templates\js\i18n\hr.js" />
+    <None Include="wwwroot\Templates\js\i18n\hsb.js" />
+    <None Include="wwwroot\Templates\js\i18n\hu.js" />
+    <None Include="wwwroot\Templates\js\i18n\hy.js" />
+    <None Include="wwwroot\Templates\js\i18n\id.js" />
+    <None Include="wwwroot\Templates\js\i18n\is.js" />
+    <None Include="wwwroot\Templates\js\i18n\it.js" />
+    <None Include="wwwroot\Templates\js\i18n\ja.js" />
+    <None Include="wwwroot\Templates\js\i18n\ka.js" />
+    <None Include="wwwroot\Templates\js\i18n\km.js" />
+    <None Include="wwwroot\Templates\js\i18n\ko.js" />
+    <None Include="wwwroot\Templates\js\i18n\lt.js" />
+    <None Include="wwwroot\Templates\js\i18n\lv.js" />
+    <None Include="wwwroot\Templates\js\i18n\mk.js" />
+    <None Include="wwwroot\Templates\js\i18n\ms.js" />
+    <None Include="wwwroot\Templates\js\i18n\nb.js" />
+    <None Include="wwwroot\Templates\js\i18n\ne.js" />
+    <None Include="wwwroot\Templates\js\i18n\nl.js" />
+    <None Include="wwwroot\Templates\js\i18n\pl.js" />
+    <None Include="wwwroot\Templates\js\i18n\ps.js" />
+    <None Include="wwwroot\Templates\js\i18n\pt-BR.js" />
+    <None Include="wwwroot\Templates\js\i18n\pt.js" />
+    <None Include="wwwroot\Templates\js\i18n\ro.js" />
+    <None Include="wwwroot\Templates\js\i18n\ru.js" />
+    <None Include="wwwroot\Templates\js\i18n\sk.js" />
+    <None Include="wwwroot\Templates\js\i18n\sl.js" />
+    <None Include="wwwroot\Templates\js\i18n\sq.js" />
+    <None Include="wwwroot\Templates\js\i18n\sr-Cyrl.js" />
+    <None Include="wwwroot\Templates\js\i18n\sr.js" />
+    <None Include="wwwroot\Templates\js\i18n\sv.js" />
+    <None Include="wwwroot\Templates\js\i18n\th.js" />
+    <None Include="wwwroot\Templates\js\i18n\tk.js" />
+    <None Include="wwwroot\Templates\js\i18n\tr.js" />
+    <None Include="wwwroot\Templates\js\i18n\uk.js" />
+    <None Include="wwwroot\Templates\js\i18n\vi.js" />
+    <None Include="wwwroot\Templates\js\i18n\zh-CN.js" />
+    <None Include="wwwroot\Templates\js\i18n\zh-TW.js" />
+    <None Include="wwwroot\Templates\js\order.js" />
+    <None Include="wwwroot\Templates\js\product.js" />
+    <None Include="wwwroot\Templates\js\qrcode.js" />
+    <None Include="wwwroot\Templates\js\select2.full.js" />
+    <None Include="wwwroot\Templates\js\select2.full.min.js" />
+    <None Include="wwwroot\Templates\js\select2.js" />
+    <None Include="wwwroot\Templates\js\select2.min.js" />
+    <None Include="wwwroot\Templates\js\site.js" />
+    <None Include="wwwroot\Templates\js\user.js" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.js" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\Templates\lib\bootstrap\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\Templates\lib\bootstrap\LICENSE" />
+    <None Include="wwwroot\Templates\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\Templates\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\Templates\lib\jquery-validation\dist\additional-methods.js" />
+    <None Include="wwwroot\Templates\lib\jquery-validation\dist\additional-methods.min.js" />
+    <None Include="wwwroot\Templates\lib\jquery-validation\dist\jquery.validate.js" />
+    <None Include="wwwroot\Templates\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <None Include="wwwroot\Templates\lib\jquery-validation\dist\jQueryFixes.js" />
+    <None Include="wwwroot\Templates\lib\jquery-validation\LICENSE.md" />
+    <None Include="wwwroot\Templates\lib\jquery\dist\jquery.js" />
+    <None Include="wwwroot\Templates\lib\jquery\dist\jquery.min.js" />
+    <None Include="wwwroot\Templates\lib\jquery\dist\jquery.min.map" />
+  </ItemGroup>
+
+</Project>

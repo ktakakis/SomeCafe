@@ -1,0 +1,25 @@
+﻿@page
+@model Disable2faModel
+@{
+    ViewData["Title"] = "Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων (2FA)";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h2>@ViewData["Title"]</h2>
+
+<div class="alert alert-warning" role="alert">
+    <p>
+        <strong>Αυτή η ενέργεια απενεργοποιεί μόνο το 2FA.</strong>
+    </p>
+    <p>
+        Η απενεργοποίηση του 2FA δεν αλλάζει τα κλειδιά που χρησιμοποιούνται σε εφαρμογές ελέγχου ταυτότητας. Εάν θέλετε να αλλάξετε το κλειδί
+        χρησιμοποιείται σε μια εφαρμογή ελέγχου ταυτότητας που πρέπει <a asp-page="./ResetAuthenticator">επαναφέρετε τα κλειδιά ελέγχου ταυτότητας.</a>
+    </p>
+</div>
+
+<div>
+    <form method="post" class="form-group">
+        <button class="btn btn-danger" type="submit">Απενεργοποίηση 2FA</button>
+    </form>
+</div>

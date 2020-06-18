@@ -1,0 +1,26 @@
+﻿@model ErrorViewModel
+@using Mondays.Models.ViewModels
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Σφάλμα.</h1>
+<h2 class="text-danger">Παρουσιάστηκε σφάλμα κατά την επεξεργασία του αιτήματός σας.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Αίτημα αναγνώρισης:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Λειτουργία ανάπτυξης</h3>
+<p>
+    Εναλλαγή σε <strong>Development</strong> Το περιβάλλον θα εμφανίσει πιο λεπτομερείς πληροφορίες σχετικά με το σφάλμα που προέκυψε.
+</p>
+<p>
+    <strong>Το περιβάλλον ανάπτυξης δεν πρέπει να είναι ενεργοποιημένο για εφαρμογές που αναπτύσσονται.</strong>
+    Μπορεί να οδηγήσει στην εμφάνιση ευαίσθητων πληροφοριών από εξαιρέσεις σε τελικούς χρήστες.
+    Για τοπικό εντοπισμό σφαλμάτων, ενεργοποιήστε το <strong>Development</strong> περιβάλλον ορίζοντας το <strong>ASPNETCORE_ENVIRONMENT</strong> μεταβλητή περιβάλλοντος σε <strong>Development</strong>
+    και επανεκκίνηση της εφαρμογής.
+</p>

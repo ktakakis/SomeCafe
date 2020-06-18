@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CacheParts\**" />
+    <EmbeddedResource Remove="CacheParts\**" />
+    <None Remove="CacheParts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EfCore.GenericServices" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataKeyParts\DataKeyParts.csproj" />
+    <ProjectReference Include="..\PermissionParts\PermissionParts.csproj" />
+    <ProjectReference Include="..\RefreshClaimsParts\RefreshClaimsParts.csproj" />
+  </ItemGroup>
+
+</Project>

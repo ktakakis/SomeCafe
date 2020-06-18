@@ -1,0 +1,22 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Επιβεβαίωση Εγγραφής";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+    <p>
+        Αυτή η εφαρμογή δεν έχει εγγεγραμμένο πραγματικό αποστολέα email, ανατρέξτε σε <a href="https://aka.ms/aspaccountconf"> αυτά τα έγγραφα </a> για τον τρόπο διαμόρφωσης ενός πραγματικού αποστολέα email.
+        Κανονικά αυτό θα σταλεί μέσω ηλεκτρονικού ταχυδρομείου: <a id="confirm-link" href="@Model.EmailConfirmationUrl"> Κάντε κλικ εδώ για να επιβεβαιώσετε τον λογαριασμό σας </a>
+    </p>
+    }
+    else
+    {
+<p>
+    Ελέγξτε το email σας για να επιβεβαιώσετε τον λογαριασμό σας.
+</p>
+    }
+}

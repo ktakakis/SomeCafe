@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200519061539_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200519061539_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200519181505_sweetness1.cs" />
+    <Compile Remove="Migrations\20200519181505_sweetness1.Designer.cs" />
+    <Compile Remove="Migrations\20200605222141_updateprefers.cs" />
+    <Compile Remove="Migrations\20200605222141_updateprefers.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.30" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mondays.Models\Mondays.Models.csproj" />
+    <ProjectReference Include="..\Mondays.Utility\Mondays.Utility.csproj" />
+  </ItemGroup>
+
+</Project>
