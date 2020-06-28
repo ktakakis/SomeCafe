@@ -29,7 +29,7 @@
                     <ul class="nav navbar-nav flex-grow-1">
 
 
-                        @if (User.IsInRole(SD.Role_Admin))
+                        @if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.FrontDeskUser))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,22 +49,21 @@
                             </li>
                         }
 
-                        @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
+                        @if (User.IsInRole(SD.FrontDeskUser) || User.IsInRole(SD.Role_Admin))
                         {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Χρήστες / Εταιρίες
+                                    Πελάτες
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Εταιρία</a>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Χρήστης</a>
-
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">Εταιρίες</a>
+                                    <a class="dropdown-item" asp-area="Admin" asp-controller="User" asp-action="Index">Χρήστες</a>
                                 </div>
                             </li>
                         }
                         <li class="nav-item">
                             <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">
-                                @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
+                                @if (User.IsInRole(SD.FrontDeskUser) || User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.KitchenUser))
                                 {
                                     <span>Παραγγελίες</span>
                                 }
@@ -74,13 +73,13 @@
                                 }
                             </a>
                         </li>
-                        @if (User.IsInRole(SD.Role_Employee) || User.IsInRole(SD.Role_Admin))
+                        @if (User.IsInRole(SD.Role_Admin))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="Admin" asp-controller="BrainTree" asp-action="Index">BrainTree</a>
                             </li>
                         }
-                        @if (User.IsInRole(SD.Role_User_Indi) || User.IsInRole(SD.Role_Admin))
+                        @if (User.IsInRole(SD.Role_User_Indi) || User.IsInRole(SD.Role_Admin)|| User.IsInRole(SD.KitchenUser)|| User.IsInRole(SD.FrontDeskUser))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" asp-area="Customer" asp-controller="CustomerPreferences" asp-action="Index">Προτιμήσεις</a>

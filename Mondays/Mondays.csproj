@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-Mondays-5E51917C-DF90-4298-8B2B-619BD0A557E7</UserSecretsId>
+    <Description>Cloudsurf POS Application</Description>
   </PropertyGroup>
 
 

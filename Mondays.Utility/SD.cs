@@ -12,10 +12,13 @@ namespace Mondays.Utility
         public const string Proc_CoverType_Update = "usp_UpdateCoverType";
         public const string Proc_CoverType_Delete = "usp_DeleteCoverType";
 
+
+        public const string Role_Admin = "Διαχειριστής";
+        public const string KitchenUser = "Κουζίνα";
+        public const string FrontDeskUser = "Ταμείο";
+        public const string Role_Employee = "Υπάλληλος";
         public const string Role_User_Indi = "Μεμονωμένος πελάτης";
-        public const string Role_User_Comp = "Πελάτης Εταιρείας";
-        public const string Role_Admin = "Admin";
-        public const string Role_Employee = "Employee";
+        public const string Role_User_Comp = " Εταιρικός Πελάτης";
 
         public const string ssShoppingCart = "Shoping Cart Session";
 

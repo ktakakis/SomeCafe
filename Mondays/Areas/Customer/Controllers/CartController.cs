@@ -74,6 +74,7 @@ namespace Mondays.Areas.Customer.Controllers
                 {
                     list.Product.Description = list.Product.Description.Substring(0, 99) + "...";
                 }
+                /*
                 list.Sweetness = customerPreferences.Where(x => x.ProductId == list.ProductId).FirstOrDefault().Sweetness;
                 list.SweetnessId = customerPreferences.Where(x => x.ProductId == list.ProductId).FirstOrDefault().SweetnessId;
 
@@ -87,7 +88,7 @@ namespace Mondays.Areas.Customer.Controllers
                 list.MilkTypes = customerPreferences.Where(x => x.ProductId == list.ProductId).FirstOrDefault().MilkTypes;
                 list.OriginId = customerPreferences.Where(x => x.ProductId == list.ProductId).FirstOrDefault().OriginId;
                 list.Origins = customerPreferences.Where(x => x.ProductId == list.ProductId).FirstOrDefault().Origins;
-
+                */
             }
 
 
@@ -188,10 +189,12 @@ namespace Mondays.Areas.Customer.Controllers
                                                             .GetFirstOrDefault(c => c.Id == claim.Value,
                                                                 includeProperties: "Company");
 
+            
             foreach (var list in ShoppingCartVM.ListCart)
             {
                 list.Price = SD.GetPriceBasedOnQuantity(list.Count, list.Product.Price,
                                                     list.Product.Price50, list.Product.Price100);
+                //list.SweetenerId = _context.CustomerPreferences.Where(x => x.ApplicationUserId == list.ApplicationUserId && x.ProductId==list.ProductId).FirstOrDefault().SweetenerId;
                 ShoppingCartVM.OrderHeader.OrderTotal += (list.Price * list.Count);
             }
             ShoppingCartVM.OrderHeader.Name = ShoppingCartVM.OrderHeader.ApplicationUser.Name;
@@ -242,7 +245,13 @@ namespace Mondays.Areas.Customer.Controllers
                     ProductId = item.ProductId,
                     OrderId = ShoppingCartVM.OrderHeader.Id,
                     Price = item.Price,
-                    Count = item.Count
+                    Count = item.Count,
+                    SweetenerId=item.SweetenerId,
+                    SweetnessId=item.SweetnessId,
+                    IceCubeId=item.IceCubeId,
+                    MilkTypeId=item.MilkTypeId,
+                    OriginId=item.OriginId,
+                    ToppingId=item.ToppingId
                 };
                 ShoppingCartVM.OrderHeader.OrderTotal += orderDetails.Count * orderDetails.Price;
                 _unitOfWork.OrderDetails.Add(orderDetails);

@@ -10,6 +10,8 @@ using Mondays.Utility;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Stripe;
+using Mondays.DataAccess.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Mondays.Areas.Admin.Controllers
 {
@@ -17,16 +19,31 @@ namespace Mondays.Areas.Admin.Controllers
     [Authorize]
     public class OrderController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
         private readonly IUnitOfWork _unitOfWork;
         [BindProperty]
         public OrderDetailsVM OrderVM { get; set; }
-        public OrderController(IUnitOfWork unitOfWork)
+        public OrderController(IUnitOfWork unitOfWork, ApplicationDbContext context)
         {
             _unitOfWork = unitOfWork;
+            _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var username = HttpContext.User.Identity.Name;
+            if (!HttpContext.User.IsInRole(SD.Role_Admin))
+            {
+                var applicationDbContext =await _context.OrderHeaders.Where(x => x.ApplicationUser.UserName == username).ToListAsync();
+
+                return View(applicationDbContext);
+            }
+            else
+            {
+                var applicationDbContext = await _context.OrderHeaders.ToListAsync();
+
+                return View(applicationDbContext);
+            }
         }
 
         public IActionResult Details(int id)
@@ -90,7 +107,7 @@ namespace Mondays.Areas.Admin.Controllers
         }
 
 
-        [Authorize(Roles =SD.Role_Admin+","+SD.Role_Employee)]
+        [Authorize(Roles =SD.Role_Admin+","+SD.FrontDeskUser + "," + SD.KitchenUser)]
         public IActionResult StartProcessing(int id)
         {
             OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == id);
@@ -100,7 +117,7 @@ namespace Mondays.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        [Authorize(Roles = SD.Role_Admin + "," + SD.FrontDeskUser + "," + SD.KitchenUser)]
         public IActionResult ShipOrder()
         {
             OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == OrderVM.OrderHeader.Id);
@@ -113,7 +130,7 @@ namespace Mondays.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize(Roles = SD.Role_Admin + "," + SD.Role_Employee)]
+        [Authorize(Roles = SD.Role_Admin + "," + SD.FrontDeskUser + "," + SD.KitchenUser)]
         public IActionResult CancelOrder(int id)
         {
             OrderHeader orderHeader = _unitOfWork.OrderHeader.GetFirstOrDefault(u => u.Id == id);
@@ -177,16 +194,26 @@ namespace Mondays.Areas.Admin.Controllers
 
             IEnumerable<OrderHeader> orderHeaderList;
 
-            if (User.IsInRole(SD.Role_Admin) || User.IsInRole(SD.Role_Employee))
+            
+            if (User.IsInRole(SD.Role_Admin))
             {
                 orderHeaderList = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").OrderByDescending(x => x.OrderDate);
+            }
+            else if (User.IsInRole(SD.KitchenUser))
+            {
+                orderHeaderList = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").OrderByDescending(x => x.OrderDate).Where(x=>x.OrderStatus==SD.StatusApproved || x.OrderStatus==SD.StatusInProcess);
+            }
+            else if (User.IsInRole(SD.FrontDeskUser))
+            {
+                orderHeaderList = _unitOfWork.OrderHeader.GetAll(includeProperties: "ApplicationUser").OrderByDescending(x => x.OrderDate).Where(x => x.OrderStatus == SD.StatusApproved || (x.OrderStatus == SD.StatusShipped && x.PaymentStatus!=SD.PaymentStatusApproved));
             }
             else
             {
                 orderHeaderList = _unitOfWork.OrderHeader.GetAll(
-                                        u=>u.ApplicationUserId==claim.Value,
+                                        u => u.ApplicationUserId == claim.Value,
                                         includeProperties: "ApplicationUser").OrderByDescending(x => x.OrderDate);
             }
+
 
             switch (status)
             {

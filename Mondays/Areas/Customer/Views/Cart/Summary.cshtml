@@ -6,9 +6,9 @@
 <form method="post">
     <br />
     <div class="backgroundWhiteBorder">
-        <div class="container">
+        <div class="container-fluid">
             <div class="card">
-                <div class="card-header bg-dark text-light ml-0 row container">
+                <div class="card-header bg-dark text-light ml-0 row container-fluid">
                     <div class="col-6">
                         <i class="fa fa-shopping-cart"></i> &nbsp;
                         Σύνοψη Παραγγελίας
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="container rounded p-2">
+                    <div class="container-fluid rounded p-2">
                         <div class="row">
                             <div class="col-12 col-lg-6 pb-4">
                                 <div class="row">
@@ -31,7 +31,7 @@
                                         <label>Χρήστης</label>
                                     </div>
                                     <div class="col-9">
-                                        @if (User.IsInRole(SD.Role_Admin))
+                                        @if (User.IsInRole(SD.Role_Admin)|| User.IsInRole(SD.FrontDeskUser))
                                         {
                                             <select asp-for="OrderHeader.ApplicationUserId" id="applicationUserId" class="form-control select2" asp-items="ViewBag.ApplicationUserId"></select>
                                         }
@@ -107,10 +107,6 @@
                                         <div>
                                             <h6 class="my-0">@details.Product.Title</h6>
                                             <small class="text-muted">Ποσότητα: @details.Count</small>
-                                        </div>
-                                        <div>
-                                            <h6 class="my-0">Προτιμήσεις</h6>
-                                            <small class="text-muted">Γ/A:@details.Sweetness.SweetnessName  Γ/O:@details.Sweetener.SweetenerName</small>
                                         </div>
                                         <span class="text-muted">@(details.Price * details.Count)€ </span>
                                     </li>

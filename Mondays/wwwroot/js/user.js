@@ -12,8 +12,8 @@ function loadDataTable() {
         },
         "columns": [
             { "data": "name", "width": "13%" },
-            { "data": "email", "width": "13%" },
             { "data": "userName", "width": "13%" },
+            { "data": "email", "width": "13%" },
             { "data": "role", "width": "13%" },
             {
                 "data": "emailConfirmed", "className": "text-center", "width": "13%",

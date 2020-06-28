@@ -84,6 +84,7 @@ namespace Mondays.Areas.Customer.Controllers
                                     .Include(c => c.Topping)
                                     .Include(c => c.IceCubes)
                                     .Include(c => c.Origins);
+
                 return View(await applicationDbContext.ToListAsync());
             }
             else
