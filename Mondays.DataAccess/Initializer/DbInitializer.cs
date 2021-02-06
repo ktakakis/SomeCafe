@@ -49,13 +49,13 @@ namespace Mondays.DataAccess.Initializer
 
             _userManager.CreateAsync(new ApplicationUser
             {
-                UserName = "admin@mondays.gr",
-                Email = "admin@mondays.gr",
+                UserName = "admin@gmail",
+                Email = "admin@gmail",
                 EmailConfirmed = true,
                 Name = "Mondays Admin"
-            }, "Mondays123!@#").GetAwaiter().GetResult() ;
+            }, "Admin123!@#").GetAwaiter().GetResult() ;
 
-            ApplicationUser user = _db.ApplicationUsers.Where(u => u.Email == "admin@mondays.gr").FirstOrDefault();
+            ApplicationUser user = _db.ApplicationUsers.Where(u => u.Email == "admin@gmail").FirstOrDefault();
 
             _userManager.AddToRoleAsync(user, SD.Role_Admin).GetAwaiter().GetResult();
         }

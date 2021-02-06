@@ -313,7 +313,7 @@ namespace Mondays.Areas.Customer.Controllers
             try
             {
                 var message = MessageResource.Create(
-                    body: "Η παραγγελία έγινε στο Mondays Cafe!. Το αναγνωριστικό παραγγελίας σας:" + id,
+                    body: "Η παραγγελία έγινε στο Some Cafe!. Το αναγνωριστικό παραγγελίας σας:" + id,
                     from: new Twilio.Types.PhoneNumber(_twilioOptions.PhoneNumber),
                     to: new Twilio.Types.PhoneNumber(orderHeader.PhoneNumber)
                     );
