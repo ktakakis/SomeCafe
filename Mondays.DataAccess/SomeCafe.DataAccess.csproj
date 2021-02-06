@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mondays.Models\Mondays.Models.csproj" />
-    <ProjectReference Include="..\Mondays.Utility\Mondays.Utility.csproj" />
+    <ProjectReference Include="..\Mondays.Models\SomeCafe.Models.csproj" />
+    <ProjectReference Include="..\Mondays.Utility\SomeCafe.Utility.csproj" />
   </ItemGroup>
 
 </Project>
